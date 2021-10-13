@@ -1,7 +1,7 @@
 "use strict";
 var JSION;
 (function (JSION) {
-    const COMMENT_PATTERN = /(?<=\\"|"(?:\\"|[^"])*")|(?:#(?:\\["\\\n\[\]{},:]|[^"\\\n\[\]{},:])*)/gm;
+    const COMMENT_PATTERN = /(?<=\\"|"(?:\\"|[^"])*")|(?:#(?:\\["\\\[\]{},:]|[^"\\\n\[\]{},:])*)/gm;
     function parse(text, reviver) {
         return JSON.parse(text.replace(COMMENT_PATTERN, ''), reviver);
     }
