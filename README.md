@@ -2,7 +2,7 @@
 JavaScript-ish Object Notation - JSON with Comments
 ## Syntax
 + Comments start with a `#` and may contain any characters except `"/[]{},:`, and `\n`. To include `"/[]{},:` in comments, include a backslash in front to escape them.
-+ Unlike in other implementations, JSION comments do not necessarily go until the end of line. JSION comments stop at the first invalid character.
++ Unlike in other implementations, JSION comments do not necessarily go until the end of the line. JSION comments stop at the first invalid character.
 + `#`s in keys and values are treaded literally and do not form comments.
 ### Examples
 ```
