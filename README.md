@@ -25,4 +25,4 @@ JavaScript-ish Object Notation - JSON with Comments
 + Any valid JSON should be valid JSION
 + JSION should work the same on a minified form as it does in an equivalent expanded form. (Newlines and whitespace should not matter.)
 ## Known Issues
-+ Comments right before a number, boolean, or null are treated differently when minified.
++ Comments right before a number, boolean, or null are treated differently when minified. When fixed, the whole value will be escaped and included in a comment if the first character or digit is escaped.
