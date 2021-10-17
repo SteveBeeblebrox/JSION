@@ -1,9 +1,9 @@
 # JSION
 JavaScript-ish Object Notation - JSON with Comments
 ## Syntax
-+ Comments start with a `#` and may contain any characters except `"/[]{},:`, and `\n`. To include `"/[]{},:` in comments, include a backslash in front to escape them.
++ Comments start with a `#` and may contain any characters except `"/[]{},:` and the words `true`, `false`, `null`, or a numerical literal. To include any reserved characters or words in comments, include a backslash in front to escape them.
 + Unlike in other implementations, JSION comments do not necessarily go until the end of the line. JSION comments stop at the first invalid character.
-+ `#`s in keys and values are treaded literally and do not form comments.
++ `#`s in keys and string values are treaded literally and do not form comments.
 ### Examples
 ```
 {
@@ -23,7 +23,4 @@ JavaScript-ish Object Notation - JSON with Comments
 ```
 ## Motivation & Goals
 + Any valid JSON should be valid JSION
-+ JSION should work the same on a minified form as it does in an equivalent expanded form. (Newlines and whitespace should not matter.)
-## Known Issues
-+ Comments right before a number, boolean, or null are treated differently when minified. When fixed, the whole value will be escaped and included in a comment if the first character or digit is escaped.
-+ Comments should include new lines so that minified and expanded formats work exactly the same. If minifing removes or changes that something, then it should not impact the parsing of comments.
++ JSION should work the same on a minified form as it does in an equivalent expanded form. (If minifing removes or changes that something, then it should not impact the parsing of comments.)
