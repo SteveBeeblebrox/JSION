@@ -14,12 +14,13 @@ JavaScript-ish Object Notation - JSON with Comments
         "#F970FF", # Pink
         "#F7F7F7"  # White
     ],
+    "id": # A user ID like \1234 56789,
     "Phone #": "+10000000000", # Not my real #
     # This isn't real either "email": "user@example.com"
 }
 ```
 ```
-{ # User Profile JSION "Name": "Trinity", "Favorite Colors": ["#5ED7FF", # Blue "#F970FF", # Pink "#F7F7F7" # White], "Phone #": "+10000000000", # Not my real # # This isn't real either "email": "user@example.com" }
+{ # User Profile JSION "Name": "Trinity", "Favorite Colors": ["#5ED7FF", # Blue "#F970FF", # Pink "#F7F7F7" # White], "id": # A user ID like \1234 56789, "Phone #": "+10000000000", # Not my real # # This isn't real either "email": "user@example.com" }
 ```
 ## Motivation & Goals
 + Any valid JSON should be valid JSION
