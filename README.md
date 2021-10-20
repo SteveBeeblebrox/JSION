@@ -4,7 +4,7 @@ JavaScript-ish Object Notation - JSON with comments, unquoted property names, an
 ### Comments
 ### Unquoted Property Names
 Propery names contailing only alphanumeric characters and underscores do not need to be placed in quotes.
-```json
+```
 {
     name: "Trinity",
     "favorite colors": [
@@ -17,7 +17,7 @@ Propery names contailing only alphanumeric characters and underscores do not nee
 ```
 ### Trailing Commas
 Just like in JavaScript, trailing comments after a value are valid in objects and arrays.
-```json
+```
 {
     "name": "Trinity",
     "favorite colors": [
@@ -32,7 +32,7 @@ Just like in JavaScript, trailing comments after a value are valid in objects an
 Aside from the above features, JSION is identical to JSON.
 
 All the above examples transpile to the following vanilla JSON:
-```json
+```
 {
     "name": "Trinity",
     "favorite colors": [
