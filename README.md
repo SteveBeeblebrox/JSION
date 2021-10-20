@@ -4,7 +4,20 @@ JavaScript-ish Object Notation - JSON with comments, unquoted property names, an
 ### Comments
 ### Unquoted Property Names
 ### Trailing Commas
-
+Just like in JavaScript, trailing comments after a value are valid in objects and arrays.
+```json
+{
+    "name": "Trinity",
+    "favoriteColors": [
+        "#5ED7FF",
+        "#F970FF",
+        "#F7F7F7",
+    ]
+    "id" : "8a04081",
+}
+```
+### Other
+Aside from the above features, JSION is identical to JSON.
 <!-- + Comments start with a `#` and may contain any characters except `"/[]{},:` and the words `true`, `false`, `null`, or a numerical literal. To include any reserved characters or words in comments, include a backslash in front to escape them. To escape words, a backslash is only needed before the first character. Words must be escaped even if part of another word (For example, the `false` in `falsetto` must be still escaped).
 + Unlike in other implementations, JSION comments do not necessarily go until the end of the line. JSION comments stop at the first unescaped forbidden character.
 + `#`s in keys and string values are treaded literally and do not form comments.
