@@ -12,7 +12,7 @@ Just like in JavaScript, trailing comments after a value are valid in objects an
         "#5ED7FF",
         "#F970FF",
         "#F7F7F7",
-    ]
+    ],
     "id" : "8a04081",
 }
 ```
