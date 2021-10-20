@@ -28,7 +28,7 @@ Text between `(` and `)` is treated as a comment. Comments may be place anywhere
 }
 ```
 ### Unquoted Property Names
-Propery names contailing only alphanumeric characters and underscores do not need to be placed in quotes.
+Propery names containing only alphanumeric characters and underscores do not need to be placed in quotes.
 ```
 {
     name: "Trinity",
