@@ -14,6 +14,19 @@ All the following examples transpile to this vanilla JSON:
 }
 ```
 ### Comments
+Text between `(` and `)` is treated as a comment. Comments may be place anywhere except inside of string keys and values. To include a `)` in a comment, escape it with a backslash.
+```
+{
+    (User Profile (As of 2021\) )
+    "name": "Trinity", (First name)
+    "favorite colors": [
+        "#5ED7FF", (Pink)
+        "#F970FF", (Blue)
+        "#F7F7F7" (White)
+    ],
+    "id" (Hexadecimal of hex digits): "8a04081"
+}
+```
 ### Unquoted Property Names
 Propery names contailing only alphanumeric characters and underscores do not need to be placed in quotes.
 ```
