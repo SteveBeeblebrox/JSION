@@ -12,7 +12,7 @@ Propery names contailing only alphanumeric characters and underscores do not nee
         "#F970FF",
         "#F7F7F7"
     ],
-    id : "8a04081"
+    id: "8a04081"
 }
 ```
 ### Trailing Commas
@@ -25,7 +25,7 @@ Just like in JavaScript, trailing comments after a value are valid in objects an
         "#F970FF",
         "#F7F7F7",
     ],
-    "id" : "8a04081",
+    "id": "8a04081",
 }
 ```
 ### Other
@@ -40,7 +40,7 @@ All the above examples transpile to the following vanilla JSON:
         "#F970FF",
         "#F7F7F7"
     ],
-    "id" : "8a04081"
+    "id": "8a04081"
 }
 ```
 
