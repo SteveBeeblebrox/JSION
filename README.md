@@ -24,7 +24,7 @@ Text between `(` and `)` is treated as a comment. Comments may be place anywhere
         "#F970FF", (Blue)
         "#F7F7F7" (White)
     ],
-    "id" (Hexadecimal of hex digits): "8a04081"
+    "id" (Hexadecimal digits): "8a04081"
 }
 ```
 ### Unquoted Property Names
