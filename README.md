@@ -80,3 +80,5 @@ Aside from the above features, JSION is identical to JSON.
 ## Motivation & Goals
 + Any valid JSON should be valid JSION
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
+## Known Issues
++ Escaping quotes brakes some things like unquoted properties. A fix is being tested.
