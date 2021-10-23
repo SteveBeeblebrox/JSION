@@ -53,6 +53,19 @@ Just like in JavaScript, trailing comments after a value are valid in objects an
     "id": "8a04081",
 }
 ```
+### Single Quoted Strings (NYI)
+Strings (keys and values) can use single quotes instead of double quotes. When using single quotes, double quotes do not need to be escaped.
+```
+{
+    'name': 'Trinity',
+    'favorite colors': [
+        '#5ED7FF',
+        '#F970FF',
+        '#F7F7F7',=
+    ],
+    'id': '8a04081'
+}
+```
 ### Other
 Aside from the above features, JSION is identical to JSON.
 
