@@ -42,7 +42,7 @@ Just like in JavaScript, trailing commas after a value are valid in objects and 
     },
 }
 ```
-### Single Quoted Strings (NYI)
+### Single Quoted Strings
 Strings (keys and values) can use single quotes instead of double quotes. When using single quotes, double quotes do not need to be escaped.
 ```
 {
