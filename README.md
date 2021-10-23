@@ -1,5 +1,5 @@
 # JSION ![GitHub](https://img.shields.io/github/license/SteveBeeblebrox/JSION?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/SteveBeeblebrox/JSION?style=flat-square) ![GitHub issues](https://img.shields.io/github/issues-raw/SteveBeeblebrox/JSION?style=flat-square) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SteveBeeblebrox/JSION?style=flat-square) ![GitHub contributors](https://img.shields.io/github/contributors/SteveBeeblebrox/JSION?color=007EC6&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/SteveBeeblebrox/JSION?style=flat-square)
-JavaScript-ish Object Notation - JSON with comments, unquoted property names, and trailing commas
+JavaScript-ish Object Notation - JSON with comments, single quote strings, unquoted property names, and trailing commas
 ## Syntax
 All the following examples transpile to this vanilla JSON:
 ```
@@ -93,5 +93,3 @@ Aside from the above features, JSION is identical to JSON.
 ## Motivation & Goals
 + Any valid JSON should be valid JSION
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
-## Known Issues
-+ Escaping quotes brakes some things like unquoted properties. A fix is being tested.
