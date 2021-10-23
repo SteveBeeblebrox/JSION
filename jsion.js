@@ -1,9 +1,13 @@
 "use strict";
 var JSION;
 (function (JSION) {
-    const COMMENT_PATTERN = /\\"|"(?:\\"|[^"])*"|(\([\S\s]*?(?<!\\)(?:\\\\)*\))/g, KEY_PATTERN = /\\"|"(?:\\"|[^"])*"|(\w*)(?=\s*?:)/g, TRAILING_COMMA_PATTERN = /\\"|"(?:\\"|[^"])*"|(,)(?=\s*?[}\]])/g;
+    const SINGLE_QUOTE_PATTERN = /(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])+(?<!\\)(?:\\{2})*"|'([\S\s]*?(?<!\\)(?:\\\\)*)'/g, COMMENT_PATTERN = /(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])+(?<!\\)(?:\\{2})*"|(\([\S\s]*?(?<!\\)(?:\\\\)*\))/g, KEY_PATTERN = /(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])+(?<!\\)(?:\\{2})*"|(\w*)(?=\s*?:)/g, TRAILING_COMMA_PATTERN = /(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])+(?<!\\)(?:\\{2})*"|(,)(?=\s*?[}\]])/g;
     function parse(text, reviver) {
-        return JSON.parse(text.replace(COMMENT_PATTERN, function (substring, ...args) {
+        return JSON.parse(text.replace(SINGLE_QUOTE_PATTERN, function (substring, ...args) {
+            if (!args[0])
+                return substring;
+            return `"${args[0].replace(/"/g, '\\"').replace(/\\'/g, "'")}"`;
+        }).replace(COMMENT_PATTERN, function (substring, ...args) {
             if (!args[0])
                 return substring;
             return '';
