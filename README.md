@@ -1,18 +1,11 @@
 # JSION ![GitHub](https://img.shields.io/github/license/SteveBeeblebrox/JSION?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/SteveBeeblebrox/JSION?style=flat-square) ![GitHub issues](https://img.shields.io/github/issues-raw/SteveBeeblebrox/JSION?style=flat-square) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SteveBeeblebrox/JSION?style=flat-square) ![GitHub contributors](https://img.shields.io/github/contributors/SteveBeeblebrox/JSION?color=007EC6&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/SteveBeeblebrox/JSION?style=flat-square)
-JavaScript-ish Object Notation - JSON with comments, single quote strings, unquoted property names, and trailing commas
+**J**ava**S**cript-**i**sh **O**bject **N**otation - JSON with comments, single quote strings, unquoted property names, and trailing commas
+## Files
++ `jsion.ts` - TypeScript source for JSION
++ `jsion.js` - Ready to use JavaScript
++ More languages coming soon...
 ## Syntax
-All the following examples transpile to this vanilla JSON:
-```
-{
-    "name": "Trinity",
-    "favorite colors": [
-        "#5ED7FF",
-        "#F970FF",
-        "#F7F7F7"
-    ],
-    "id": "8a04081"
-}
-```
+Aside from the following features, JSION is identical to standard JSON.
 ### Comments
 Text between `(` and `)` is treated as a comment. Comments may be place anywhere except inside of string keys and values. To include a `)` in a comment, escape it with a backslash.
 ```
@@ -66,30 +59,63 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
     'id': '8a04081'
 }
 ```
-### Other
-Aside from the above features, JSION is identical to JSON.
-
-<!-- + Comments start with a `#` and may contain any characters except `"/[]{},:` and the words `true`, `false`, `null`, or a numerical literal. To include any reserved characters or words in comments, include a backslash in front to escape them. To escape words, a backslash is only needed before the first character. Words must be escaped even if part of another word (For example, the `false` in `falsetto` must be still escaped).
-+ Unlike in other implementations, JSION comments do not necessarily go until the end of the line. JSION comments stop at the first unescaped forbidden character.
-+ `#`s in keys and string values are treaded literally and do not form comments.
-### Examples
+## Complete Example
+### JSION
 ```
 {
-    # User Profile JSION
-    "Name": "Trinity",
-    "Favorite Colors": [
-        "#5ED7FF", # Blue
-        "#F970FF", # Pink
-        "#F7F7F7"  # White
+    (User Profile (v1.0.0\))
+    name: "Trinity",
+    nickname: "Trin",
+    "favorite colors": [
+        '#5ED7FF', (Pink)
+        '#F970FF', (Blue)
+        '#F7F7F7', (White)
     ],
-    "id": # A user ID like \1234 56789,
-    "Phone #": "+10000000000", # Not my real #
-    # This isn't real either "email": "user@example.com"
+    'contact info': {
+        (Fake contact info)
+        phone_number: '+10000000000',
+        email_address: 'example@example.com',
+    },
+    quotes: [
+        '"I like cake 🎂"',
+        "\"Hello World!\"",
+        '"Isn\'t this cool?"'
+    ],
+    id: 142,
+    active: true (Signed in recently?)
 }
 ```
+### Minified JSION
 ```
-{ # User Profile JSION "Name": "Trinity", "Favorite Colors": ["#5ED7FF", # Blue "#F970FF", # Pink "#F7F7F7" # White], "id": # A user ID like \1234 56789, "Phone #": "+10000000000", # Not my real # # This isn't real either "email": "user@example.com" }
-```-->
+
+```
+### JSON
+```
+{
+  "name": "Trinity",
+  "nickname": "Trin",
+  "favorite colors": [
+    "#5ED7FF",
+    "#F970FF",
+    "#F7F7F7"
+  ],
+  "contact info": {
+    "phone_number": "+10000000000",
+    "email_address": "example@example.com"
+  },
+  "quotes": [
+    "\"I like cake 🎂\"",
+    "\"Hello World!\"",
+    "\"Isn't this cool?\""
+  ],
+  "id": 142,
+  "active": true
+}
+```
+### Minified JSON
+```
+
+```
 ## Motivation & Goals
 + Any valid JSON should be valid JSION
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
