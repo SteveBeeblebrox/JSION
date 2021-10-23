@@ -10,14 +10,9 @@ Aside from the following features, JSION is identical to standard JSON.
 Text between `(` and `)` is treated as a comment. Comments may be place anywhere except inside of string keys and values. To include a `)` in a comment, escape it with a backslash.
 ```
 {
-    (User Profile (As of 2021\) )
-    "name": "Trinity", (First name)
-    "favorite colors": [
-        "#5ED7FF", (Pink)
-        "#F970FF", (Blue)
-        "#F7F7F7" (White)
-    ],
-    "id" (Hexadecimal digits): "8a04081"
+    (User Profile (v1.0.0\))
+    "name": "Trinity",
+    "active": true (Signed in recently?)
 }
 ```
 ### Unquoted Property Names
@@ -25,25 +20,26 @@ Propery names containing only alphanumeric characters and underscores do not nee
 ```
 {
     name: "Trinity",
-    "favorite colors": [
-        "#5ED7FF",
-        "#F970FF",
-        "#F7F7F7"
-    ],
-    id: "8a04081"
+    nickname: "Trin",
+    "contact info": {
+        phone_number: "+10000000000",
+        email_address: "example@example.com"
+    }
 }
 ```
 ### Trailing Commas
-Just like in JavaScript, trailing comments after a value are valid in objects and arrays.
+Just like in JavaScript, trailing commas after a value are valid in objects and arrays.
 ```
 {
-    "name": "Trinity",
     "favorite colors": [
         "#5ED7FF",
         "#F970FF",
         "#F7F7F7",
     ],
-    "id": "8a04081",
+    "contact info": {
+        "phone_number": "+10000000000",
+        "email_address": "example@example.com",
+    },
 }
 ```
 ### Single Quoted Strings (NYI)
@@ -52,11 +48,15 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
 {
     'name': 'Trinity',
     'favorite colors': [
-        '#5ED7FF',
-        '#F970FF',
-        '#F7F7F7',=
+        '#5ED7FF'
+        '#F970FF'
+        '#F7F7F7'
     ],
-    'id': '8a04081'
+    'quotes': [
+        '"I like cake 🎂"',
+        "\"Hello World!\"",
+        '"Isn\'t this cool?"'
+    ]
 }
 ```
 ## Complete Example
