@@ -119,3 +119,6 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
 ## Motivation & Goals
 + Any valid JSON should be valid JSION
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
+
+## Planned Features
++ Improve trailing comma removal
