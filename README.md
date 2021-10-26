@@ -121,4 +121,5 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
 
 ## Planned Features
-+ Improve trailing comma removal
++ Improve trailing comma removal (Allow trailing comma at the end of the file).
++ Allow underscores as visual separators within number literals.
