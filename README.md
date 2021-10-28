@@ -16,7 +16,7 @@ Text between `(` and `)` is treated as a comment. Comments may be place anywhere
 }
 ```
 ### Unquoted Property Names
-Propery names starting with a letter, an undersocre, or a dollar sign followed by only other alphanumeric characters, dollar signs, and underscores do not need to be placed in quotes. This is similar to JavaScript except that higher unicode letters and zero width spaces are not allowed.
+Property names starting with a letter, an underscore, or a dollar sign followed by only other alphanumeric characters, dollar signs, and underscores do not need to be placed in quotes. This is similar to JavaScript except that higher Unicode letters and zero width spaces are not allowed.
 ```
 {
     name: "Trinity",
@@ -59,8 +59,8 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
     ]
 }
 ```
-### Numeric Seperators
-Underscores can be placed within numbers to improve readability. Undercores may not directly preceeed or follow a decimal point or an `e` or `E` if using exponential notation.
+### Numeric Separators
+Underscores can be placed within numbers to improve readability. Underscores may not directly precede or follow a decimal point or an `e` or `E` if using exponential notation.
 ```
 {
     "id": 1_42
@@ -130,4 +130,4 @@ Underscores can be placed within numbers to improve readability. Undercores may 
 ## Planned Features
 + Optimizations (Combine some Regular Expressions that overlap).
 + Make outermost curly brackets optional if the overall structure is an object (Contains key-value pairs).
-+ Improve trailing comma removal (Allow trailing comma at the end of the file) (Dependant on previous feature).
++ Improve trailing comma removal (Allow trailing comma at the end of the file) (Dependent on previous feature).
