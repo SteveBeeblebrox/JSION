@@ -59,6 +59,13 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
     ]
 }
 ```
+### Numeric Seperators
+Underscores can be placed within numbers to improve readability. Undercores may not directly preceeed or follow a decimal point or an `e` or `E` if using exponential notation.
+```
+{
+    "id": 1_42
+}
+```
 ## Complete Example
 ### JSION
 ```
@@ -81,13 +88,13 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
         "\"Hello World!\"",
         '"Isn\'t this cool?"'
     ],
-    id: 142,
+    id: 1_42,
     active: true (Signed in recently?)
 }
 ```
 ### Minified JSION
 ```
-{(User Profile (v1.0.0\))name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(Pink)'#F970FF',(Blue)'#F7F7F7',(White)],'contact info':{(Fake contact info)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id: 142,active:true(Signed in recently?)}
+{(User Profile (v1.0.0\))name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(Pink)'#F970FF',(Blue)'#F7F7F7',(White)],'contact info':{(Fake contact info)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id: 1_42,active:true(Signed in recently?)}
 ```
 ### JSON
 ```
