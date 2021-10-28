@@ -129,4 +129,4 @@ Underscores can be placed within numbers to improve readability. Undercores may 
 
 ## Planned Features
 + Improve trailing comma removal (Allow trailing comma at the end of the file).
-+ Make outermost curly brackets optional if the overall structure is an object.
++ Make outermost curly brackets optional if the overall structure is an object (Contains key-value pairs).
