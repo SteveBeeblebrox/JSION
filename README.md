@@ -128,6 +128,7 @@ Underscores can be placed within numbers to improve readability. Underscores may
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
 
 ## Planned Features
++ Question mark as an alias for null or empty arrays and objects.
 + Optimizations (Combine some Regular Expressions that overlap).
 + Make outermost curly brackets optional if the overall structure is an object (Contains key-value pairs).
 + Improve trailing comma removal (Allow trailing comma at the end of the file) (Dependent on previous feature).
