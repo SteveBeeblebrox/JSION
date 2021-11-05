@@ -68,6 +68,8 @@ Underscores (`_`) can be placed within numbers to improve readability. Underscor
 ```
 ### Shorthahand Null
 A question mark (`?`) may be used in place of `null`.
+### Implicit Null Array Items
+
 ## Complete Example
 ### JSION
 ```
