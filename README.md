@@ -43,7 +43,7 @@ Just like in JavaScript, trailing commas after a value are valid in objects and 
 }
 ```
 ### Single Quoted Strings
-Strings (keys and values) can use single quotes instead of double quotes. When using single quotes, double quotes do not need to be escaped.
+Strings (keys and values) can use single quotes (`'`) instead of double quotes (`"`). When using single quotes, double quotes do not need to be escaped.
 ```
 {
     'name': 'Trinity',
@@ -60,12 +60,14 @@ Strings (keys and values) can use single quotes instead of double quotes. When u
 }
 ```
 ### Numeric Separators
-Underscores can be placed within numbers to improve readability. Underscores may not directly precede or follow a decimal point or an `e` or `E` if using exponential notation.
+Underscores (`_`) can be placed within numbers to improve readability. Underscores may not directly precede or follow a decimal point or an `e` or `E` if using exponential notation.
 ```
 {
     "id": 1_42
 }
 ```
+### Shorthahand Null
+A question mark (`?`) may be used in place of `null`.
 ## Complete Example
 ### JSION
 ```
