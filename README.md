@@ -106,7 +106,7 @@ A question mark (`?`) may be used in place of `null`.
 ```
 ### Minified JSION
 ```
-{(User Profile (v1.0.0\))name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(Pink)'#F970FF',(Blue)'#F7F7F7',(White)],'contact info':{(Fake contact info)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id: 1_42,active:true,(Signed in recently?)"profile picture": ?}
+{(User Profile (v1.0.0\))name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(Pink)'#F970FF',(Blue)'#F7F7F7',(White)],'contact info':{(Fake contact info)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id:1_42,active:true,(Signed in recently?)"profile picture":?}
 ```
 ### JSON
 ```
@@ -141,7 +141,5 @@ A question mark (`?`) may be used in place of `null`.
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
 
 ## Planned Features
-+ Question mark as an alias for null or empty arrays and objects.
 + Optimizations (Combine some Regular Expressions that overlap).
-+ Make outermost curly brackets optional if the overall structure is an object (Contains key-value pairs).
-+ Improve trailing comma removal (Allow trailing comma at the end of the file) (Dependent on previous feature).
++ Improve trailing comma removal (Allow trailing comma at the end of the file).
