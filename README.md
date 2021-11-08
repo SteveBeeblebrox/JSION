@@ -73,7 +73,8 @@ A question mark (`?`) may be used in place of `null`.
     "profile picture": ?
 }
 ```
-### Implicit Null Array Items
+### Implicit Null Items
+`null` is automatically inserted between adjacent commas. Note that this is done after trailing comma removal.
 ```
 
 ```
