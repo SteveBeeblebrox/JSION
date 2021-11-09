@@ -143,4 +143,4 @@ A question mark (`?`) may be used in place of `null`.
 
 ## Planned Features
 + Optimizations (Combine some Regular Expressions that overlap).
-+ Improve trailing comma removal (Allow trailing comma at the end of the file).
++ Additional number formats
