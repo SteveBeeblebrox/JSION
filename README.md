@@ -74,9 +74,21 @@ A question mark (`?`) may be used in place of `null`.
 }
 ```
 ### Implicit Null Items
-`null` is automatically inserted between adjacent commas. Note that this is done after trailing comma removal.
+`null` is automatically inserted between adjacent commas (`.`). Note that this is done after trailing comma removal. `null` is also inserted between a colon (`:`) and a comma or a colon and a closing brace (`}`). (WIP)
 ```
-
+{
+    "high scores": [100,,120,117,,,142],
+    "favorite band": ,
+    "favorite song":
+}
+```
+### Automatic Commas
+(WIP)
+```
+{
+    "favorite color": "pink"
+    "lucky number": 142
+}
 ```
 ## Complete Example
 ### JSION
