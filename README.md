@@ -83,7 +83,7 @@ A question mark (`?`) may be used in place of `null`.
 }
 ```
 ### Automatic Commas
-(WIP)
+Commas (`,`) are optional after values in an object. If no value is present and the next part of the object is anohter key, this also works with implicit null values. (WIP)
 ```
 {
     "favorite color": "pink"
