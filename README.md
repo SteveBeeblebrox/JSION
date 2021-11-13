@@ -156,5 +156,5 @@ Commas (`,`) are optional after values in an object. If no value is present and 
 ## Planned Features
 + Optimizations (Combine some Regular Expressions that overlap).
 + Allow semicolons to be used in place of commas.
-+ Automatic colons and commas around objects
++ Improve error messages when trying to use implicit nulls between commas when not in arrays.
 + Additional number formats
