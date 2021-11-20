@@ -156,6 +156,7 @@ Commas (`,`) are optional after values in an object. If no value is present and 
 ## Planned Features
 + Optimizations (Combine some Regular Expressions that overlap).
 + Allow semicolons to be used in place of commas.
-+ Expand the stringify method to support inserting comments through a symbol property.
++ Expand the stringify method to support inserting comments through setting a symbol property on values.
++ Expand the stringify method to use shorter space saving formats when possible.
 + Improve error messages when trying to use implicit nulls between commas and not in an arrays.
 + Additional number formats for positive signs, hexadecimal, octadecimal, and more.
