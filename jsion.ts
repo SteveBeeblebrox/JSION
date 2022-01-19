@@ -9,8 +9,9 @@ namespace JSION {
         NULL_SHORTHAND_PATTERN = /(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])+(?<!\\)(?:\\{2})*"|(\?)/g,
         NUMBER_SEPERATOR = /(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])+(?<!\\)(?:\\{2})*"|(?<=\d)(_)(?=\d)/g;
     export function parse(text: string, reviver?: ((this: any, key: string, value: any) => any) | undefined): any {
-        return JSON.parse(text.replace(SINGLE_QUOTE_PATTERN, function(substring: string, ...args: any[]) {
-            if(!args[0]) return substring
+        return console.log(text.replace(SINGLE_QUOTE_PATTERN, function(substring: string, ...args: any[]) {
+            if(args[0] === undefined) return substring
+            console.log(args[0])
             return `"${args[0].replace(/"/g, '\\"').replace(/\\'/g, "'")}"`
         }).replace(COMMENT_PATTERN, function(substring: string, ...args: any[]) {
             if(!args[0]) return substring
