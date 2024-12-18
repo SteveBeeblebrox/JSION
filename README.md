@@ -1,85 +1,87 @@
 # JSION ![GitHub](https://img.shields.io/github/license/SteveBeeblebrox/JSION?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/SteveBeeblebrox/JSION?style=flat-square) ![GitHub issues](https://img.shields.io/github/issues-raw/SteveBeeblebrox/JSION?style=flat-square) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SteveBeeblebrox/JSION?style=flat-square) ![GitHub contributors](https://img.shields.io/github/contributors/SteveBeeblebrox/JSION?color=007EC6&style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/SteveBeeblebrox/JSION?style=flat-square)
-**J**ava**S**cript-**i**sh **O**bject **N**otation - JSON with comments, single quote strings, unquoted property names, trailing commas, and other quality of life features
+**J**ava**S**cript-**i**sh **O**bject **N**otation - A superset of JSON with comments, single quote strings, unquoted property names, trailing commas, and other quality of life features
 ## Files
 + `jsion.ts` - TypeScript source for JSION
 + `jsion.js` - Ready to use JavaScript
 + More languages coming soon...
 ## Syntax
-Aside from the following features, JSION is identical to standard JSON.
+JSION adds the following features to standard JSON.
 ### Comments
-Text between `(*` and `*)` is treated as a comment. Comments may be place anywhere except inside of string keys and values. To include a `*)` in a comment, escape it with a backslash.
-```
+Text between `(*` and `*)` is treated as a comment. Comments may be placed anywhere except inside of string keys and values. To include a `*)` in a comment, escape the asterisk it with a backslash. JSION has no single line comments since it may be minified just like JSON.
+```ml
 {
-    (*User Profile (v1.0.0)*)
+    (* User Profile (v1.0.0) *)
     "name": "Trinity",
-    "active": true (*Signed in recently?*)
+    "admin": true (* Does user have admin powers? *)
 }
 ```
 ### Unquoted Property Names
-Property names starting with a letter, an underscore, or a dollar sign followed by only other alphanumeric characters, dollar signs, and underscores do not need to be placed in quotes. This is similar to JavaScript except that higher Unicode letters and zero width spaces are not allowed.
-```
+If a property name is a simple JavaScript-like identifier (`[a-zA-Z_$][0-9a-zA-Z_$]*`), the surrounding quotes may be omitted.
+```js
 {
     name: "Trinity",
-    nickname: "Trin",
-    "contact info": {
-        phone_number: "+10000000000",
-        email_address: "example@example.com"
-    }
+    nickname: "Trin"
 }
 ```
 ### Trailing Commas
-Just like in JavaScript, trailing commas after a value are valid in objects and arrays.
-```
+Just like in JavaScript, trailing commas after a value are ignored in objects and arrays.
+```js
 {
-    "favorite colors": [
-        "#5ED7FF",
-        "#F970FF",
-        "#F7F7F7",
+    "activity": [
+        "2021",
+        "2022",
+        "2024",
     ],
-    "contact info": {
-        "phone_number": "+10000000000",
-        "email_address": "example@example.com",
-    },
 }
 ```
 ### Single Quoted Strings
-Strings (keys and values) can use single quotes (`'`) instead of double quotes (`"`). When using single quotes, double quotes do not need to be escaped.
-```
+Strings (as both keys and values) can use single quotes instead of double quotes. When using single quotes, double quotes do not need to be escaped, but internal single quotes do.
+```js
 {
-    'name': 'Trinity',
-    'favorite colors': [
-        '#5ED7FF'
-        '#F970FF'
-        '#F7F7F7'
-    ],
-    'quotes': [
-        '"I like cake 🎂"',
+    'recent posts': [
+        '"🔥 Heat from fire..."',
         "\"Hello World!\"",
         '"Isn\'t this cool?"'
     ]
 }
 ```
 ### Numeric Separators
-Underscores (`_`) can be placed within numbers to improve readability. Underscores may not directly precede or follow a decimal point or an `e` or `E` if using exponential notation.
-```
+Single underscores can be placed within numbers between digits to improve readability. Underscores may not directly precede or follow a decimal point or an `e` or `E` if using exponential notation.
+```js
 {
-    "id": 1_42
+    "points": 1_000_000
 }
 ```
-### Shorthahand Null
-A question mark (`?`) may be used in place of `null`.
-```
+
+### Additional Numeric Literals
+JSION supports hexadecimal, octal, and binary integer literals. These all support the aforementioned numeric separators.
+```js
 {
-    "profile picture": ?
+    "colors": [
+        0xAD4674,
+        0xC8_7F_93,
+        0o74571362,
+        0b111001001101001011000110,
+        0b0111_1011_0100_1100_0011_1010
+    ]
+}
+
+```
+
+### Shorthand Null
+One or more question marks may be used in place of `null`.
+```js
+{
+    "profile picture": ???
 }
 ```
+
 ### Implicit Null Items
-`null` is automatically inserted between adjacent commas (`,`). Note that this is done after trailing comma removal. `null` is also inserted between a colon (`:`) and a comma or a colon and a closing brace (`}`).
-```
+Missing values in objects and arrays are interpreted as null. Note that trailing comma removal in arrays happens first!
+```js
 {
-    "high scores": [100,,120,117,,,142],
-    "favorite band": ,
-    "favorite song":
+    "alt text": ,
+    "icons": [,"admin",,,"flower",,]
 }
 ```
 <!--### Automatic Commas
@@ -90,6 +92,7 @@ Commas (`,`) are optional after values in an object. If no value is present and 
     "lucky number": 142
 }
 ```-->
+<!--
 ## Complete Example
 ### JSION
 ```
@@ -148,15 +151,17 @@ Commas (`,`) are optional after values in an object. If no value is present and 
 ### Minified JSON
 ```
 {"name":"Trinity","nickname":"Trin","favorite colors":["#5ED7FF","#F970FF","#F7F7F7"],"contact info":{"phone_number":"+10000000000","email_address":"example@example.com"},"quotes":["\"I like cake 🎂\"","\"Hello World!\"","\"Isn't this cool?\""],"id":142,"active":true,"profile picture":null}
-```
+```-->
 ## Motivation & Goals
-+ Any valid JSON should be valid JSION
-+ JSION should work the same on a minified form as it does in an equivalent expanded form.
++ JSION is designed for easier human use (like config files). When exchanging between machines, use JSON
++ JSION should work the same regardless of being minified or expanded
++ JSION must be a superset of JSON (All valid JSON is valid JSION and has the same meaning)
 
 ## Planned Features
 + Optimizations
-+ Allow semicolons to be used in place of commas.
-+ Expand the stringify method to support inserting comments through setting a symbol property on values.
-+ Expand the stringify method to use shorter space saving formats when possible.
-+ Improve error messages when trying to use implicit nulls between commas and not in an arrays.
-+ Additional number formats for positive signs and more.
++ Allow semicolons to be used in place of commas
++ Optional commas in objects
++ Expand the stringify method to support inserting comments
++ Expand the stringify method to use shorter space saving formats when possible
++ Improve error messages
++ Additional number formats for positive signs and more
