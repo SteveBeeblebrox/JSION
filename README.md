@@ -94,16 +94,16 @@ Commas (`,`) are optional after values in an object. If no value is present and 
 ### JSION
 ```
 {
-    (User Profile (v1.0.0\))
+    (*User Profile (v1.0.0)*)
     name: "Trinity",
     nickname: "Trin",
     "favorite colors": [
-        '#5ED7FF', (Pink)
-        '#F970FF', (Blue)
-        '#F7F7F7', (White)
+        '#5ED7FF', (*Pink*)
+        '#F970FF', (*Blue*)
+        '#F7F7F7', (*White*)
     ],
     'contact info': {
-        (Fake contact info)
+        (*Fake contact info*)
         phone_number: '+10000000000',
         email_address: 'example@example.com',
     },
@@ -113,13 +113,13 @@ Commas (`,`) are optional after values in an object. If no value is present and 
         '"Isn\'t this cool?"'
     ],
     id: 1_42,
-    active: true, (Signed in recently?)
+    active: true, (*Signed in recently?*)
     "profile picture": ?
 }
 ```
 ### Minified JSION
 ```
-{(User Profile (v1.0.0\))name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(Pink)'#F970FF',(Blue)'#F7F7F7',(White)],'contact info':{(Fake contact info)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id:1_42,active:true,(Signed in recently?)"profile picture":?}
+{(*User Profile (v1.0.0)*)name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(*Pink*)'#F970FF',(*Blue*)'#F7F7F7',(*White*)],'contact info':{(*Fake contact info*)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id:1_42,active:true,(*Signed in recently?*)"profile picture":?}
 ```
 ### JSON
 ```
