@@ -7,12 +7,12 @@
 ## Syntax
 Aside from the following features, JSION is identical to standard JSON.
 ### Comments
-Text between `(` and `)` is treated as a comment. Comments may be place anywhere except inside of string keys and values. To include a `)` in a comment, escape it with a backslash.
+Text between `(*` and `*)` is treated as a comment. Comments may be place anywhere except inside of string keys and values. To include a `*)` in a comment, escape it with a backslash.
 ```
 {
-    (User Profile (v1.0.0\))
+    (*User Profile (v1.0.0)*)
     "name": "Trinity",
-    "active": true (Signed in recently?)
+    "active": true (*Signed in recently?*)
 }
 ```
 ### Unquoted Property Names
@@ -74,7 +74,7 @@ A question mark (`?`) may be used in place of `null`.
 }
 ```
 ### Implicit Null Items
-`null` is automatically inserted between adjacent commas (`.`). Note that this is done after trailing comma removal. `null` is also inserted between a colon (`:`) and a comma or a colon and a closing brace (`}`).
+`null` is automatically inserted between adjacent commas (`,`). Note that this is done after trailing comma removal. `null` is also inserted between a colon (`:`) and a comma or a colon and a closing brace (`}`).
 ```
 {
     "high scores": [100,,120,117,,,142],
@@ -83,7 +83,7 @@ A question mark (`?`) may be used in place of `null`.
 }
 ```
 <!--### Automatic Commas
-Commas (`,`) are optional after values in an object. If no value is present and the next part of the object is anohter key, this also works with implicit null values. (WIP)
+Commas (`,`) are optional after values in an object. If no value is present and the next part of the object is another key, this also works with implicit null values. (WIP)
 ```
 {
     "favorite color": "pink"
@@ -154,9 +154,9 @@ Commas (`,`) are optional after values in an object. If no value is present and 
 + JSION should work the same on a minified form as it does in an equivalent expanded form.
 
 ## Planned Features
-+ Optimizations (Combine some Regular Expressions that overlap).
++ Optimizations
 + Allow semicolons to be used in place of commas.
 + Expand the stringify method to support inserting comments through setting a symbol property on values.
 + Expand the stringify method to use shorter space saving formats when possible.
 + Improve error messages when trying to use implicit nulls between commas and not in an arrays.
-+ Additional number formats for positive signs, hexadecimal, octadecimal, and more.
++ Additional number formats for positive signs and more.
