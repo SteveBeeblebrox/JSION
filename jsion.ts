@@ -1,10 +1,11 @@
 namespace JSION {
     export const VERSION: Readonly<{major: number, minor: number, patch: number, metadata?: string, prerelease?: string, toString(): string}> = Object.freeze({
         toString() {return `${VERSION.major}.${VERSION.minor}.${VERSION.patch}${VERSION.prerelease !== undefined ? `-${VERSION.prerelease}` : ''}${VERSION.metadata !== undefined ? `+${VERSION.metadata}` : ''}`},
-        major: 1, minor: 0, patch: 1
+        major: 1, minor: 0, patch: 3
     });
 
     export const transpile = function(text: string): string {
+
         // Character escapes, streaming?
         return text.replace(...compile({
             // Double quote strings
@@ -13,12 +14,15 @@ namespace JSION {
             [/(?<!\\)(?:\\{2})*'(?:(?<!\\)(?:\\{2})*\\'|[^'])*(?<!\\)(?:\\{2})*'/.source]: text => `"${text.slice(1,-1).replace(/"/g, '\\"').replace(/\\'/g,"'")}"`,
             // Comments
             [/\(\*[\s\S]*?(?<!\\)(?:\\\\)*\*\)/.source]: () => '',
+        },'g')).replace(...compile({
+            // Double quote strings
+            [/(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])*(?<!\\)(?:\\{2})*"/.source]: text => text,
             // Unquoted keys
             [/[a-zA-Z_$][0-9a-zA-Z_$]*(?=\s*?:)/.source]: text => `"${text}"`,
+            // Empty array items
+            [/(?<=[\[,])\s*?,(?=\s*?])|(?<=[\[,])\s*?(?=,)/.source]: text => 'null',
             // Trailing commas
             [/,(?=\s*?[}\]])/.source]: () => '',
-            // Empty array items
-            [/(?<=\[)(\s*?)(?=,)|(?<=,)(\s*?)(?=[,\]])/.source]: text => text + 'null',
             // Empty object items
             [/(?<=:)(\s*?)(?=[,}])/.source]: text => text + 'null',
             // Null shorthand
