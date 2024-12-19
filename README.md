@@ -77,7 +77,7 @@ One or more question marks may be used in place of `null`.
 ```
 
 ### Implicit Null Items
-Missing values in objects and arrays are interpreted as null. Note that trailing comma removal in arrays happens first!
+Missing values in objects and arrays are interpreted as null. Note that trailing comma removal in arrays happens after!
 ```js
 {
     "alt text": ,
