@@ -3,7 +3,7 @@ var JSION;
 (function (JSION) {
     JSION.VERSION = Object.freeze({
         toString() { return `${JSION.VERSION.major}.${JSION.VERSION.minor}.${JSION.VERSION.patch}${JSION.VERSION.prerelease !== undefined ? `-${JSION.VERSION.prerelease}` : ''}${JSION.VERSION.metadata !== undefined ? `+${JSION.VERSION.metadata}` : ''}`; },
-        major: 1, minor: 0, patch: 1
+        major: 1, minor: 0, patch: 3
     });
     JSION.transpile = function (text) {
         // Character escapes, streaming?
@@ -14,12 +14,15 @@ var JSION;
             [/(?<!\\)(?:\\{2})*'(?:(?<!\\)(?:\\{2})*\\'|[^'])*(?<!\\)(?:\\{2})*'/.source]: text => `"${text.slice(1, -1).replace(/"/g, '\\"').replace(/\\'/g, "'")}"`,
             // Comments
             [/\(\*[\s\S]*?(?<!\\)(?:\\\\)*\*\)/.source]: () => '',
+        }, 'g')).replace(...compile({
+            // Double quote strings
+            [/(?<!\\)(?:\\{2})*"(?:(?<!\\)(?:\\{2})*\\"|[^"])*(?<!\\)(?:\\{2})*"/.source]: text => text,
             // Unquoted keys
             [/[a-zA-Z_$][0-9a-zA-Z_$]*(?=\s*?:)/.source]: text => `"${text}"`,
+            // Empty array items
+            [/(?<=[\[,])\s*?,(?=\s*?])|(?<=[\[,])\s*?(?=,)/.source]: text => 'null',
             // Trailing commas
             [/,(?=\s*?[}\]])/.source]: () => '',
-            // Empty array items
-            [/(?<=\[)(\s*?)(?=,)|(?<=,)(\s*?)(?=[,\]])/.source]: text => text + 'null',
             // Empty object items
             [/(?<=:)(\s*?)(?=[,}])/.source]: text => text + 'null',
             // Null shorthand
