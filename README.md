@@ -2,6 +2,15 @@
 **J**ava**S**cript-**i**sh **O**bject **N**otation - A superset of JSON with comments, single quote strings, unquoted property names, trailing commas, and other quality of life features
 ## Files
 + `jsion.ts` - TypeScript source for JSION
+
+```ts
+// JSION TypeScript API
+namespace JSION {
+    const transpile: (text: string) => string;
+    const parse: typeof JSON.parse;
+    const stringify: typeof JSON.stringify;
+}
+```
 + `jsion.js` - Ready to use JavaScript
 + More languages coming soon...
 ## Syntax
@@ -92,68 +101,22 @@ Commas (`,`) are optional after values in an object. If no value is present and 
     "lucky number": 142
 }
 ```-->
-<!--
+
 ## Complete Example
-### JSION
+<!--
 ```
-{
-    (*User Profile (v1.0.0)*)
-    name: "Trinity",
-    nickname: "Trin",
-    "favorite colors": [
-        '#5ED7FF', (*Pink*)
-        '#F970FF', (*Blue*)
-        '#F7F7F7', (*White*)
-    ],
-    'contact info': {
-        (*Fake contact info*)
-        phone_number: '+10000000000',
-        email_address: 'example@example.com',
-    },
-    quotes: [
-        '"I like cake 🎂"',
-        "\"Hello World!\"",
-        '"Isn\'t this cool?"'
-    ],
-    id: 1_42,
-    active: true, (*Signed in recently?*)
-    "profile picture": ?
+function ecws(text: string) {
+    return text.replaceAll(/[\t\n]/g,t=>`&#${t.charCodeAt(0)};`).replaceAll(/\\/g,'\\\\')
 }
 ```
-### Minified JSION
-```
-{(*User Profile (v1.0.0)*)name:"Trinity",nickname:"Trin","favorite colors": ['#5ED7FF',(*Pink*)'#F970FF',(*Blue*)'#F7F7F7',(*White*)],'contact info':{(*Fake contact info*)phone_number:'+10000000000',email_address:'example@example.com',},quotes:['"I like cake 🎂"',"\"Hello World!\"",'"Isn\'t this cool?"'],id:1_42,active:true,(*Signed in recently?*)"profile picture":?}
-```
-### JSON
-```
-{
-  "name": "Trinity",
-  "nickname": "Trin",
-  "favorite colors": [
-    "#5ED7FF",
-    "#F970FF",
-    "#F7F7F7"
-  ],
-  "contact info": {
-    "phone_number": "+10000000000",
-    "email_address": "example@example.com"
-  },
-  "quotes": [
-    "\"I like cake 🎂\"",
-    "\"Hello World!\"",
-    "\"Isn't this cool?\""
-  ],
-  "id": 142,
-  "active": true,
-  "profile picture": null
-}
-```
-### Minified JSON
-```
-{"name":"Trinity","nickname":"Trin","favorite colors":["#5ED7FF","#F970FF","#F7F7F7"],"contact info":{"phone_number":"+10000000000","email_address":"example@example.com"},"quotes":["\"I like cake 🎂\"","\"Hello World!\"","\"Isn't this cool?\""],"id":142,"active":true,"profile picture":null}
-```-->
+-->
+|          | JSION | JSON |
+| -------- | ----- | ---- | 
+| Expanded | <pre lang=js>&#10;{&#10;    (\* User Profile (v1.0.0) \*)&#10;    name: 'Trinity',&#10;    nickname: 'Trin',&#10;    admin: true (\* Does user have admin powers? \*),&#10;    activity: [&#10;        "2021", "2022", "2024",&#10;    ],&#10;    'recent posts': [&#10;        '"🔥 Heat from fire..."',&#10;        "\\"Hello World!\\"",&#10;        '"Isn\\'t this cool?"',&#10;    ],&#10;    points: 1_000_000,&#10;    colors: [&#10;        0xAD4674,&#10;        0xC8_7F_93,&#10;        0o74571362,&#10;        0b111001001101001011000110,&#10;        0b0111_1011_0100_1100_0011_1010,&#10;    ],&#10;    "profile picture": ???,&#10;    "alt text": ,&#10;    icons: [,"admin",,,"flower",,],&#10;}&#10;</pre> | <pre lang=js>{&#10;    "name": "Trinity",&#10;    "nickname": "Trin",&#10;    "admin": true ,&#10;    "activity": [&#10;        "2021", "2022", "2024"&#10;    ],&#10;    "recent posts": [&#10;        "\\"🔥 Heat from fire...\\"",&#10;        "\\"Hello World!\\"",&#10;        "\\"Isn't this cool?\\""&#10;    ],&#10;    "points": 1000000,&#10;    "colors": [&#10;        11355764,&#10;        13139859,&#10;        15921906,&#10;        14996166,&#10;        8080442&#10;    ],&#10;    "profile picture": null,&#10;    "alt text": null,&#10;    "icons": [null,"admin",null,null,"flower",null]&#10;}</pre> |
+| Minified | <pre lang=js>&#10;{(\*User Profile (v1.0.0)\*)name:'Trinity',&#10;nickname:'Trin',admin:true(\*Does user have admin &#10;powers?\*),activity:["2021","2022","2024"],&#10;'recent posts':['"🔥 Heat from fire..."',&#10;"\\"Hello World!\\"",'"Isn\\'t this cool?"'],points:&#10;1000000,colors:[0xAD4674,0xC8_7F_93,0o74571362,&#10;0b111001001101001011000110,0b011110110100110000111010&#10;],"profile picture":,"alt text":,"icons":[,"admin",,,&#10;"flower",,]}&#10;</pre> | <pre lang=js>{"name":"Trinity","nickname":"Trin",&#10;"admin":true,"activity":["2021","2022","2024"],&#10;"recent posts":["\\"🔥 Heat from fire...\\"",&#10;"\\"Hello World!\\"","\\"Isn't this cool?\\""],&#10;"points":1000000,"colors":[11355764,13139859,&#10;15921906,14996166,8080442],"profile picture":null,&#10;"alt text":null,"icons":[null,"admin",null,null,&#10;"flower",null]}</pre> |
+
 ## Motivation & Goals
-+ JSION is designed for easier human use (like config files). When exchanging between machines, use JSON
++ JSION is designed for easier human use (like config files); when exchanging between machines, use JSON
 + JSION should work the same regardless of being minified or expanded
 + JSION must be a superset of JSON (All valid JSON is valid JSION and has the same meaning)
 
